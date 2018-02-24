@@ -1,0 +1,32 @@
+<html>
+<head>
+
+</head>
+<body>
+  <div id="container">
+    <div>A</div>
+    <div>B</div>
+
+  </div>
+  <script>
+    /*
+    var div = document.createElement("div");
+    div.innerHTML = "Some Content";
+    var container = document.getElementById("container");
+    container.appendChild(div);
+    
+    var child = container.lastChild;
+    if (child) {
+      container.removeChild(child);
+    }
+    */
+    var newContainer = document.createElement("div");  
+    newContainer.innerHTML = "取代原本的 div container!";
+    var container = document.getElementById("container");
+    newContainer.id = container.id;
+    newContainer.className = container.className;
+    container.parentNode.replaceChild(newContainer, container);
+ 
+  </script>
+</body>
+</html>

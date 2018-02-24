@@ -1,0 +1,42 @@
+<html>
+<head>
+  <script>
+    // JavaScript 寫在這
+    var state = true;
+    function toggleLight() {
+      var image = document.getElementById("image");
+      state = !state;
+      image.src = state ? "on.jpg" : "off.jpg";
+    }
+ 
+    function startCount() {  
+      var timeLeft = document.getElementById("input").value;
+
+      if (isNaN(timeLeft)) {
+        alert("輸入值要為數字!");
+      } else {
+        function countDownTimer() {
+          timeLeft = timeLeft - 1;
+          if (timeLeft <= 0) {
+            document.getElementById("image").src = "off.jpg";
+            clearInterval(id);
+            }
+          document.getElementById("timer").innerHTML = timeLeft;
+        }
+        var id = setInterval(countDownTimer, 1000);
+      }
+    }
+
+  </script>
+</head>
+<body>
+  <!-- HTML 語法寫在這 -->
+  <img id="image" src="on.jpg" style="display:block" height="500px">
+  <button class="button" style="display:block" onclick="toggleLight();">ON<br>-<br>OFF</button>
+
+  <input type="text" id="input">
+  <button onclick="startCount();"> 倒數 </button>
+  <div class="div" id="timer"></div>
+
+</body>
+</html>
